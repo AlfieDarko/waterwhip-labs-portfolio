@@ -1,20 +1,20 @@
 module.exports = {
   pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
 
-  siteTitle: 'Jodie', // Navigation and Site Title
-  siteTitleAlt: 'Jodie - Gatsby Starter Portfolio', // Alternative Site title for SEO
-  siteTitleShort: 'Jodie', // short_name for manifest
-  siteHeadline: 'Come & Enjoy our excellent photos', // Headline for schema.org JSONLD
-  siteUrl: 'https://jodie.lekoarts.de', // Domain of your site. No trailing slash!
+  siteTitle: 'Waterwhip Labs', // Navigation and Site Title
+  siteTitleAlt: 'Waterwhip Labs - React Engineering Specialists', // Alternative Site title for SEO
+  siteTitleShort: 'Waterwhip Labs', // short_name for manifest
+  siteHeadline: 'Providing specialised React based Front-End Engineering for the payments and e-commerce space.', // Headline for schema.org JSONLD
+  siteUrl: 'https://waterwhiplabs.co.uk', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   siteLogo: '/logos/logo.png', // Used for SEO and manifest
-  siteDescription: 'Image-heavy photography portfolio with colorful accents & great typography',
-  author: 'LekoArts', // Author for schema.org JSONLD
+  siteDescription: 'Showcasing React based engineering consultancy services',
+  author: 'Waterwhip Labs', // Author for schema.org JSONLD
 
   // siteFBAppID: '123456789', // Facebook App ID - Optional
-  userTwitter: '@jodie', // Twitter Username
-  ogSiteName: 'jodie', // Facebook Site Name
-  ogLanguage: 'en_US', // og:language
+  userTwitter: '@waterwhiplabs', // Twitter Username
+  ogSiteName: 'waterwhiplabs', // Facebook Site Name
+  ogLanguage: 'en_GB', // og:language
   googleAnalyticsID: 'UA-XXXXXX-X',
 
   // Manifest and Progress color

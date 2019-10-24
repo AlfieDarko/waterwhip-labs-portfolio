@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-portfolio-jodie",
+  "name": "waterwhip-labs-portfolio",
   "private": true,
-  "description": "Image-heavy photography portfolio with colorful accents & great typography",
+  "description": "Portfolio site for waterwhip labs (React Engineering Consultancy)",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
@@ -78,12 +78,5 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
     "start-server-and-test": "^1.10.6"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/LekoArts/gatsby-starter-portfolio-jodie"
-  },
-  "bugs": {
-    "url": "https://github.com/LekoArts/gatsby-starter-portfolio-jodie/issues"
   }
 }

@@ -1,17 +1,17 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import { transparentize, readableColor } from 'polished'
-import styled from 'styled-components'
-import { config, useSpring, animated } from 'react-spring'
-import Layout from '../components/layout'
-import { Box, AnimatedBox, Button } from '../elements'
-import SEO from '../components/SEO'
+import React from "react";
+import { graphql } from "gatsby";
+import Img from "gatsby-image";
+import { transparentize, readableColor } from "polished";
+import styled from "styled-components";
+import { config, useSpring, animated } from "react-spring";
+import Layout from "../components/layout";
+import { Box, AnimatedBox, Button } from "../elements";
+import SEO from "../components/SEO";
 
 const PBox = styled(AnimatedBox)`
   max-width: 1400px;
   margin: 0 auto;
-`
+`;
 
 const Content = styled(Box)<{ bg: string }>`
   background-color: ${props => transparentize(0.9, props.bg)};
@@ -23,13 +23,13 @@ const Content = styled(Box)<{ bg: string }>`
       margin-bottom: ${props => props.theme.space[8]};
     }
   }
-`
+`;
 
 const Category = styled(AnimatedBox)`
   letter-spacing: 0.05em;
   font-size: ${props => props.theme.fontSizes[1]};
   text-transform: uppercase;
-`
+`;
 
 const Description = styled(animated.div)`
   max-width: 960px;
@@ -37,69 +37,87 @@ const Description = styled(animated.div)`
   --baseline-multiplier: 0.179;
   --x-height-multiplier: 0.35;
   line-height: 1.58;
-`
+`;
 
 const PButton = styled(Button)<{ color: string }>`
-  background: ${props => (props.color === 'white' ? 'black' : props.color)};
-  color: ${props => readableColor(props.color === 'white' ? 'black' : props.color)};
-`
+  background: ${props => (props.color === "white" ? "black" : props.color)};
+  color: ${props =>
+    readableColor(props.color === "white" ? "black" : props.color)};
+`;
 
 type PageProps = {
   data: {
     project: {
-      title_detail: string
-      color: string
-      category: string
-      desc: string
-      slug: string
+      title_detail: string;
+      color: string;
+      category: string;
+      desc: string;
+      slug: string;
       parent: {
-        modifiedTime: string
-        birthTime: string
-      }
+        modifiedTime: string;
+        birthTime: string;
+      };
       cover: {
         childImageSharp: {
           resize: {
-            src: string
-          }
-        }
-      }
-    }
+            src: string;
+          };
+        };
+      };
+    };
     images: {
       nodes: {
-        name: string
+        name: string;
         childImageSharp: {
           fluid: {
-            aspectRatio: number
-            src: string
-            srcSet: string
-            sizes: string
-            base64: string
-            tracedSVG: string
-            srcWebp: string
-            srcSetWebp: string
-          }
-        }
-      }[]
-    }
-  }
-}
+            aspectRatio: number;
+            src: string;
+            srcSet: string;
+            sizes: string;
+            base64: string;
+            tracedSVG: string;
+            srcWebp: string;
+            srcSetWebp: string;
+          };
+        };
+      }[];
+    };
+  };
+};
 
-const Project: React.FunctionComponent<PageProps> = ({ data: { project, images } }) => {
+const Project: React.FunctionComponent<PageProps> = ({
+  data: { project, images }
+}) => {
   const categoryAnimation = useSpring({
     config: config.slow,
-    from: { opacity: 0, transform: 'translate3d(0, -30px, 0)' },
-    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
-  })
+    from: { opacity: 0, transform: "translate3d(0, -30px, 0)" },
+    to: { opacity: 1, transform: "translate3d(0, 0, 0)" }
+  });
 
-  const titleAnimation = useSpring({ config: config.slow, delay: 300, from: { opacity: 0 }, to: { opacity: 1 } })
-  const descAnimation = useSpring({ config: config.slow, delay: 600, from: { opacity: 0 }, to: { opacity: 1 } })
-  const imagesAnimation = useSpring({ config: config.slow, delay: 800, from: { opacity: 0 }, to: { opacity: 1 } })
+  const titleAnimation = useSpring({
+    config: config.slow,
+    delay: 300,
+    from: { opacity: 0 },
+    to: { opacity: 1 }
+  });
+  const descAnimation = useSpring({
+    config: config.slow,
+    delay: 600,
+    from: { opacity: 0 },
+    to: { opacity: 1 }
+  });
+  const imagesAnimation = useSpring({
+    config: config.slow,
+    delay: 800,
+    from: { opacity: 0 },
+    to: { opacity: 1 }
+  });
 
   return (
     <Layout color={project.color}>
       <SEO
         pathname={project.slug}
-        title={`${project.title_detail} | Jodie`}
+        title={`${project.title_detail} | Waterwhip Labs`}
         desc={project.desc}
         node={project.parent}
         banner={project.cover.childImageSharp.resize.src}
@@ -115,21 +133,25 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images }
       <Content bg={project.color} py={10}>
         <PBox style={imagesAnimation} px={[6, 6, 8, 10]}>
           {images.nodes.map(image => (
-            <Img alt={image.name} key={image.childImageSharp.fluid.src} fluid={image.childImageSharp.fluid} />
+            <Img
+              alt={image.name}
+              key={image.childImageSharp.fluid.src}
+              fluid={image.childImageSharp.fluid}
+            />
           ))}
         </PBox>
       </Content>
-      <PBox style={{ textAlign: 'center' }} py={10} px={[6, 6, 8, 10]}>
+      <PBox style={{ textAlign: "center" }} py={10} px={[6, 6, 8, 10]}>
         <h2>Want to start your own project?</h2>
         <PButton color={project.color} py={4} px={8}>
           Contact Us
         </PButton>
       </PBox>
     </Layout>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;
 
 export const query = graphql`
   query ProjectTemplate($slug: String!, $images: String!) {
@@ -153,7 +175,10 @@ export const query = graphql`
         }
       }
     }
-    images: allFile(filter: { relativePath: { regex: $images } }, sort: { fields: name, order: ASC }) {
+    images: allFile(
+      filter: { relativePath: { regex: $images } }
+      sort: { fields: name, order: ASC }
+    ) {
       nodes {
         name
         childImageSharp {
@@ -164,4 +189,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
