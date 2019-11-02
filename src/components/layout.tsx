@@ -86,7 +86,11 @@ const Layout = ({ children, color }: LayoutProps) => {
             <Box p={[6, 6, 8]} fontSize={0}>
               <a href="https://www.waterwhiplabs.co.uk">Waterwhip Labs</a>.
               <br />
-              <a href="https://www.waterwhiplabs.co.uk">UI Engineering Consultancy</a>.
+              <a href="https://www.waterwhiplabs.co.uk">
+                UI Engineering Consultancy
+              </a>
+              .<br></br>
+              <small>The money rolls in when things look good.</small>
             </Box>
           </Footer>
         </Wrapper>

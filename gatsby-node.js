@@ -2,15 +2,16 @@
 const wrapper = promise =>
   promise.then(result => {
     if (result.errors) {
-      throw result.errors
+      throw result.errors;
     }
-    return result
-  })
+    return result;
+  });
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  const projectTemplate = require.resolve('./src/templates/project.tsx')
+  const projectTemplate = require.resolve("./src/templates/project.tsx");
+  const articleTemplate = require.resolve("./src/templates/article.tsx");
 
   const result = await wrapper(
     graphql(`
@@ -23,7 +24,25 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     `)
-  )
+  );
+
+  const result2 = await graphql(`
+    {
+      articles: allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            frontmatter {
+              path
+            }
+          }
+        }
+      }
+    }
+  `);
+  // console.log(`result.data: ${result.data}`);
 
   result.data.projects.nodes.forEach(node => {
     createPage({
@@ -31,8 +50,16 @@ exports.createPages = async ({ graphql, actions }) => {
       component: projectTemplate,
       context: {
         slug: node.slug,
-        images: `/${node.images}/`,
-      },
-    })
-  })
-}
+        images: `/${node.images}/`
+      }
+    });
+  });
+
+  result2.data.articles.edges.forEach(({ node }) => {
+    createPage({
+      path: node.frontmatter.path,
+      component: articleTemplate,
+      context: {} // additioonal data can be passed via context
+    });
+  });
+};
