@@ -136,7 +136,7 @@ const Instagram: React.FunctionComponent<Props> = ({
 
   return (
     <Layout color="#3F4F67">
-      <SEO title="Instagram | Waterwhip Labs" />
+      <SEO title="Instagram | AlfonzoMillions" />
       <Grid style={pageAnimation}>
         {trail.map((style, index) => {
           // Grab everything before the first hashtag (because I write my captions like that)

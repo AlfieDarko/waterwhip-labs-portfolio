@@ -8,12 +8,12 @@ const Talk: any = ({ data }: any) => {
   return (
     <div className="talk-container">
       <div className="talk-video">
-        <h1>{frontmatter.title}</h1>
-        <h2>{frontmatter.date}</h2>
-        <div
+        {/* <h1>{frontmatter.title}</h1> */}
+        {/* <h2>{frontmatter.date}</h2> */}
+        {/* <div
           className="talk-video-content"
           dangerouslySetInnerHTML={{ __html: html }}
-        />
+        /> */}
       </div>
     </div>
   );

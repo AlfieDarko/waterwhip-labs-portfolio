@@ -1,7 +1,7 @@
 {
-  "name": "waterwhip-labs-portfolio",
+  "name": "Waterwhipped-portfolio",
   "private": true,
-  "description": "Portfolio site for waterwhip labs (React Engineering Consultancy)",
+  "description": "Portfolio site for Waterwhipped Labs (WEB/UI Engineer)",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {

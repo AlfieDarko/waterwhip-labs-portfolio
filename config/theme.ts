@@ -38,6 +38,10 @@ const theme: ThemeShape = {
     '8rem',
     '12rem',
     '16rem',
+    '20rem',
+    '24rem',
+    '28rem',
+    '32rem',
   ],
   fontWeights: {
     normal: 400,

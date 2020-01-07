@@ -1,6 +1,6 @@
-import reset from "../styles/reset";
-import { createGlobalStyle } from "styled-components";
-import theme from "../../config/theme";
+import { createGlobalStyle } from 'styled-components'
+import reset from '../styles/reset'
+import theme from '../../config/theme'
 
 export const GlobalStyles = createGlobalStyle`
   *::before,
@@ -67,7 +67,9 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: black;
-    font-family: 'Work Sans', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    /* font-family: 'Work Sans', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif; */
+    font-family: '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+
     background: white;
     font-size: 18px;
   }
@@ -82,4 +84,4 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   ${reset}
-`;
+`
